@@ -24,7 +24,7 @@
 %define devname %mklibname gaminggear -d
 Name:           libgaminggear
 Version:        0.15.1
-Release:        2
+Release:        1
 Summary:        Library for gaming input devices
 License:        GPL-2.0 and CC-BY-3.0
 Group:          System/Libraries
