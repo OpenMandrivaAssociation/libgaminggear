@@ -17,6 +17,8 @@ BuildRequires:  cmake >= 2.6.4
 BuildRequires:  doxygen
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig
+BuildRequires:	pkgconfig(harfbuzz)
+BuildRequires:	pkgconfig(pango)
 BuildRequires:  pkgconfig(gtk+-2.0) >= 2.20
 BuildRequires:  pkgconfig(gudev-1.0)
 BuildRequires:  pkgconfig(libcanberra)
