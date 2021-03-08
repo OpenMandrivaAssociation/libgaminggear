@@ -1,21 +1,3 @@
-#
-# spec file for package libgaminggear
-#
-# Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
-#
-
-
 %define majorversion 0
 %define libgaminggear       libgaminggear0
 %define libgaminggearfx     libgaminggearfx0
@@ -24,12 +6,13 @@
 %define devname %mklibname gaminggear -d
 Name:           libgaminggear
 Version:        0.15.1
-Release:        2
+Release:        3
 Summary:        Library for gaming input devices
 License:        GPL-2.0 and CC-BY-3.0
 Group:          System/Libraries
 Url:            https://sourceforge.net/projects/libgaminggear/
 Source:         http://downloads.sourceforge.net/project/%{name}/%{name}-%{version}.tar.bz2
+Patch0:         0001-Fix-build-with-recent-pango-versions.patch
 BuildRequires:  cmake >= 2.6.4
 BuildRequires:  doxygen
 BuildRequires:  fdupes
@@ -87,10 +70,11 @@ This package holds libgaminggearwidget.
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 %cmake
-make %{?_smp_mflags}
+%make_build
 
 %install
 cd build
